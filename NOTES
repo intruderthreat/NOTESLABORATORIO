@@ -1,3 +1,38 @@
+ NOTES 6/04
+ //declaraciòn variables
+//conviene declarar los struct en main ya que el resto de .h pueden utilizar los structs declarados en el main (cosa que no sucede si se declaran los struct en un solo .h)
+
+//esto lo declarò en main
+
+tPersona p;
+//declarò el resto de variables del menù 
+
+//punto 9resolution (hecho por el profesor) *declarado en el .h*:
+struct tPersona
+    {
+    int dni;
+	char nombre[20];
+	char apellido[20];
+    };
+//menù switch *REPASAR USO DEL AMPERSAN->& = Direcciòn de memoria de la variable //declarada, se pasa la direcciòn de memoria al puntero que utilizarà la funciòn*
+//case del punto 9 en el menu *dentro del main*:
+{
+cargarPersona(&p);
+}
+
+//declarado en el .h para la resoluciòn punto 9: 
+    void cargarPersona(tPersona *persona)
+{
+        cout<<"Ingrese el DNI de la persona:"<<endl;
+        cin>>persona->dni;
+        cout<<"Ingrese el nombre de la persona:"<<endl;
+cin.getline(persona->nombre);
+cout<<"Ingrese el apellido de la persona:"<<endl;
+cin.getline(persona->apellido);
+};
+
+REPASAR STRUCT!!
+--------------------------------------------------------------------------------------------
 NOTES 19/04/2018
 
 Libro de programaciòn orientada a objetos:
