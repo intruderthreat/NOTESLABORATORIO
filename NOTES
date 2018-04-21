@@ -32,6 +32,203 @@ cin.getline(persona->apellido);
 };
 
 REPASAR STRUCT!!
+---
+/*Punto 9 ejercicios dia 2 (resuelto por el profesor):
+struct tProducto
+{
+    int id;
+    bool Eliminado;
+    float Precio;
+    int Stock;
+    char Nombre[50];
+};
+
+bool existeProducto(tProducto  *vec, int tam,int id)
+{
+    for(int i=0;i<tam;i++)
+    {
+        if(!vec[i].Eliminado && id==vec[i].id)
+        {
+            return false;
+        }
+    }
+}
+
+tProducto productos[5];
+//
+
+
+
+---------
+//ARCHIVOS////// 12/04
+using namespace std;
+
+struct tCosa
+{
+int numero;
+char texto[1000];
+bool siono; //el sizeof da 1008 porque suma todo lo que hay dentro del struct
+};
+
+#include <cstdio>
+
+int main()
+{
+    //CREACION DE UN ARCHIVO, escritura y lectura:
+    tCosa cosa, cosa2;
+    cosa.numero=1;
+    cosa.siono=true;
+    strcpy(cosa.texto, "texto")
+
+    FILE *p;
+    p = fopen("miArchivo.txt", "wb"); //en caso de no especificar la ruta se crea en la raiz del ejecutable.
+    //VERIFICACION DEL ARCHIVO:
+    if(p!=NULL)
+    {
+    fwrite(&cosa, sizeof(//acasepuedeponervariableotipodedato//cosa, 1, p));                                    //para especificar la ruta serìa: ("Archivos/miArchivo.txt","wb");
+    fclose(p);
+    }
+
+    //si quiero que este archivo siga vigente al reabrir el programa:
+    p = fopen("miArchivo.txt", "rb"); //en caso de no especificar la ruta se crea en la raiz del ejecutable.
+    fread(&cosa2, sizeof(//acasepuedeponervariableotipodedatoquequeremossaber//cosa2, 1, p));                                    //para especificar la ruta serìa: ("Archivos/miArchivo.txt","wb");
+    fclose(p);
+
+    //mostrar lo que se grabo:
+
+    cout<<"Texto:"<<cosa2.texto<<endl;
+    cout<<"Numero:"<<cosa2.numero<<endl;
+    cout<<"siono:"<<cosa2.siono<<endl;
+}
+
+
+//EJERCICIOS DIA2:
+
+Ejercicio 1 en main:
+
+char op;
+bool salir=false;
+while(!salir)
+{
+sys::cls();
+cout<<"A-Limpiar archivo"<<endl;
+cout<<"B-Agregar Producto"<<endl;
+cout<<"c-Mostrar Productos"<<endl;
+cout<<"S-Salir"<<endl;
+cin>>op;
+cin.ignore();
+switch(op)
+{
+{
+case 'a':
+case 'A':
+{
+limpiarArchivo();
+}break;
+{
+case 'b':
+case 'B':
+{
+sys::cls();
+tProducto p;
+CargarProducto(&p);
+guardarProducto(&p);
+}break;
+case 'c':
+case 'C':
+{
+sys::cls();
+tProducto p;
+CargarProducto(&p);
+guardarProducto(&p);
+}break;
+case 's':
+case 'S':
+{
+
+}break;
+default:
+{
+}break;
+}
+
+
+en funciones .h:
+
+const char RUTA_PRODUCTOS = "productos.data"
+struct tProducto
+{
+int id;
+bool Eliminado;
+float Precio;
+char Nombre[100];
+int Stock;
+};
+
+void limpiarArchivo()
+{
+FILE *p;
+p = fopen("RUTA_PRODUCTOS"[], "wb");
+if(p != NULL)
+{
+fclose()
+}
+}
+
+void CargarProducto(tProducto *prod) //ò tProducto CargarProducto()
+{
+tProducto prod;
+cout<<"Ingrese un nombre:"<<endl;
+sys::getline(prod->Nombre, 100);
+cout<<"Ingrese precio:"<<endl;
+cin>>prod->Precio;
+cout<<"Ingrese stock:"<<endl;
+cin>>prod->Stock;
+prod.Eliminado=false;
+}
+
+void GuardarProducto(tProducto *prod)
+{
+FILE /p;
+p= fopen(RUTA_PRODUCTOS; "ab");
+if(p!= NULL)
+{
+fwrite(prod, sizeof(tProducto), 1, p): //si acà paso &prod, le estoy pasando la direccion de memoria (en este caso necesito el valor, no la direccion de memoria)
+fclose(p);
+}
+}
+
+
+//editar productos de un archivo:
+
+void MostrarProducto(tProducto prod)
+{
+cout<<"Producto:"<<prod.Nombre<<endl;
+cout<<"Precio:"<<prod.Precio<<endl;
+cout<<"Stock:"<<prod.Stock<<endl;
+}
+
+void LeerProductos()
+{
+tProducto prod;
+FILE *p;
+p= fopen(RUTA_PRODUCTOS;"rb");
+if(p != NULL)
+{
+cout<<"------------------"<<endl;
+while(fread(&prod, sizeof(tProducto), 1, p))//ESTE WHILE DEVUELVE LA CANTIDAD DE REGISTROS LEIDOS
+{
+if(!prod.Eliminado)//este if es "Si NO està eliminado".
+MostrarProducto(prod);
+cout<<"------------------"<<endl;
+
+}
+}
+}
+
+//BUSCAR UN PRODUCTO AL PRINCIPIO DEL COMMENT.
+*/
+
 --------------------------------------------------------------------------------------------
 NOTES 19/04/2018
 
