@@ -1,33 +1,30 @@
-Programaciòn orientada a objetos:
-
-Clase (struct, "idea abstracta"). Por ejemplo, existe la idea de un perro, pero uno no puede acariciar la idea de perro, 
-lo que uno acaricia son entidades existentes de esa idea. Perro.entidad.
-
-
-Objeto ("ente concreto"), es el ser que forma parte de la clase. C+omo por ejemplo, mi perro
-Firulais es un objeto que pertenece a la clase "PERROS"
-
---------------------------------
-PUNTEROS:
-
--Un puntero es una variable que contiene un tipo de dato (la direcciòn de la memoria).
-
--& se llama "address-of"
-
-Definiciòn de un puntero:
-int *pEdad = 0;
-int: Se indica que el puntero va a guardar la direcciòn de una variable del tipo integer (esto se hace ya que 
-es necesario saber la cantidad de memoria de lo que se va a guardar).
-* pNombredevariable = Se usa el asterisco para indicar que la variable es un puntero, y se agrega p antes del nombre,
-para facilitar y hacer màs àgil el reconocer la variable.
-= 0; = Debe incializarse siempre el puntero para que no arroje errores en el programa.
-
-ejemplo de asignaciòn de una direcciòn de memoria a un puntero:
-int *pEdad = 50;
-int *pEdad = &queEdad;
-
-Asignar valor de la variable que contiene el puntero:
-int tuEdad;
-tuEdad = *pEdad; (tuEdad = lo que hay en la direcciòn de memoria pEdad) 
-*pEdad = 5 (asigna 5 al valor de la variable a la que apunta pEdad)
-tuEdad = pEdad; (tuEdad = direcciòn de memoria, lo que hay en el puntero pEdad)
+CHECKINPUT: Chequea que sólo se ingrese un número entero:
+int checkinput() //Chequea que el ingreso sea un numero entero, no letra, o whitespace
+{
+int tam = -1;
+while(tam < 1 )
+    {
+        //Chequea que la variable no sea whitespace. spax[0] es un whitespace.
+        char spax[1];
+        spax[0] = ' ';
+         cout<<"Ingrese un numero entero por favor:"<<endl;
+         char c;
+         //Si falla al leer (no hay input) o el sig caracter despues del numero no es un whitespace (o coma o punto)
+         if( !( cin>>tam ) || (cin.get(c) && !spax[0]) )
+         {
+             cin.clear();
+             cin.ignore( 500, '\n' );
+             tam = -1 ; //entra al loop de nuevo
+             system("cls");
+             cout << "Opcion invalida. " ;
+             system("pause");
+         }
+         else if( tam < 1 )
+         {
+            system("cls");
+            cout << "Opcion invalida. " ;
+            system("pause");
+         }
+    }
+    return tam; //Devuelve input en caso de ser un entero
+}
