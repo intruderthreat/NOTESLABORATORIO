@@ -295,5 +295,58 @@ TP:
 Crear contacto, modificar contacto, listar contactos.
 Agregar telèfonos, modificar telèfonos existentes, eliminar telèfonos.
 
+---------------------
+Notes 26/04
 
+Validaciòn ejemplo realizada por el profesor:
+bool ValidarSoN(char *texto)
+{
+  char rta[2];
+  do
+  {
+      cout <<texto;
+      cin.getline(rta,2);
+  }while(rta[0]!='s' &&
+         rta[0]!='S' &&
+         rta[0]!='n' &&
+         rta[0]!='N');
+  return rta[0]=='s' ||rta[0]=='S' ;
+}
 
+void validarNumeros(char *texto,char *msgError,char*rta)
+{
+  bool salir;
+  do
+  {
+      cout <<texto;
+      cin.getline(rta,15);
+      int i=0;
+      salir = true;
+      while(rta[i]!='\0')
+      {
+        if(rta[i]< 48 ||
+           rta[i]> 57)
+        {
+          salir = false;
+          break;
+        }
+        i++;
+      }
+      if(!salir)
+      {
+        cout <<msgError<<endl;
+      }
+  }while(!salir);
+}
+
+int main()
+{
+bool respuesta = ValidarSoN("Realmente quiere salir?");
+if(respuesta)
+{
+cout<<"Salimos";
+}
+{
+cout<<"No salimos";
+}
+}
